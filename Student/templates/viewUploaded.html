@@ -1,0 +1,99 @@
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<title></title>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Faustina:wght@500&display=swap" rel="stylesheet">
+	<style>
+		html { 
+			background: url({% static 'image/backgroundUpload.png '%}) no-repeat center center fixed; 
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+		body{
+			background-color: transparent;	
+			width: 100%;
+		}
+		#label{
+			width: 20%;
+		}
+		.border{
+			background-color: #ecf0f1; height: 500px; box-shadow: 18px 20px 5px 2px grey;
+			font-family: 'Faustina', serif;
+		}
+		@media only screen and (max-width: 1200px) {
+			#label{
+				width: 30%;
+			}
+			.border{
+				box-shadow:none;
+				background-color: transparent;
+			}
+		}
+	</style>
+</head>
+<body>
+
+{% include "toolbarStudent.html" %}
+	<div class="container-fluid" style="margin-top: 150px;">
+		<div class="row">
+			<div class="col-xl-1 col-12"></div>
+			<div class="col-xl-5 col-12 border">
+				<div style="font-family: 'Asap', sans-serif;font-weight: bold;font-size: 30px;">
+					Upload magazine
+				</div>
+				<div class="container" style="background-color: #74b9ff; border-radius: 10px;">
+					<p>Before you updating, make sure to read:</p>
+					<p>1. You can upload file word and image</p>
+					<p>2. You can update or edit your article(s) until the final closure date</p>
+				</div>
+				
+				<div class="container">
+					{% for data in DataNoImage %}
+					<div class="input-group">
+						<div class="input-group-prepend" id="label">
+							<span class="input-group-text" style="background-color: transparent; border-color: transparent;">Sort title</span>
+						</div>
+						<input type="text" class="form-control" name="nameContribute" value="{{data.1}}" readonly>
+					</div>
+					<div class="input-group">
+						<div class="input-group-prepend" id="label">
+							<span class="input-group-text" style="background-color: transparent; border-color: transparent;">Description</span>
+						</div>
+						<input type="text" class="form-control" name="description" value="{{data.2}}" readonly> 
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<button style="width: 180px; margin-top: 10px; float: left;" type="button" class="btn btn-info">Upload contribute</button>
+							<input type="file" required id="uploadContribute" name="contribute" accept=".doc,.docx,application/msword" style="display: none;">
+							<p id="nameFileContribute" style="margin-top: 16px;"><a href="/media/{{data.0}}">{{data.0}}</a></p>
+						</div>
+					{%endfor%}
+
+						{% for data in DataImage %}
+						<div class="col-12">
+							<button style="width: 180px; margin-top: 10px; float: left;" type="button" class="btn btn-info">Upload image</button>
+							<input type="file" required id="uploadImage1" name="image1" accept="image/*" style="display: none;">
+							<p id="nameImage1" style="margin-top: 16px;"><a href="/media/{{data.0}}">{{data.0}}</a></p>
+						</div>
+						<!-- <div class="col-12">
+							<button style="width: 180px; margin-top: 10px; float: left;" type="button" class="btn btn-info">Upload image</button>
+							<input type="file" required id="uploadImage2" name="image2" accept="image/*" style="display: none;">
+							<p id="nameImage2" style="margin-top: 16px;">{{data.0}}</p>
+						</div> -->
+						{%endfor%}
+					</div>
+
+				</div>
+
+			</div>
+			<div class="col-xl-6 col-12"></div>
+		</div>
+	</div>
+</body>
+</html>

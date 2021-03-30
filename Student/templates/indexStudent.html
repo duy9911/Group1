@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+{% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body>
+	<style>
+		html { 
+			background: url({% static 'image/background_khongchu.png' %}) no-repeat center center fixed; 
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+		body{
+			background-color: transparent !important;	
+		}
+		.btn{
+			width: 140px; height: 70px;
+			font-weight: bold;
+		}
+		.btngirl{
+			margin-left: 120px; 
+			margin-top: -8px;
+		}
+		.btnEdithuman{
+			position: absolute;
+			margin-top: 105px;
+			margin-left: -90px;
+		}
+		.slogan{
+			text-align: center; margin-top: 140px;
+		}
+		@media only screen and (max-width: 700px) {
+			.btn{
+				width: 80px; height: 40px;
+				font-size: 11px;
+			}
+			.btngirl{
+				margin-left: 10px;
+				margin-top: -2px;
+			}
+			.studying{
+				margin-top: 0px !important;
+			}
+			.btnEdithuman{
+				margin-top: 75px !important;
+				margin-left: -45px !important;
+			}
+			.slogan{
+				margin-top: 50px;
+			}
+		}
+		@media only screen and (max-width: 1200px) {
+			.btngirl{
+				margin-left: 55px;
+				margin-top: -5px;
+			}
+			.btnEdithuman{
+				margin-top: 185px;
+				margin-left: -80px;
+			}
+		}
+	</style>
+</body>
+{% include "toolbarStudent.html" %}
+
+<div class="container-xl">
+	<div class="row">
+		<h1 class="col-xl-4 col-12 slogan">MAKE YOUR IDEAS COME TRUE</h1>
+		<div class="col-xl-8 col-12" style="text-align: center; ">
+			<img src="{% static 'image/studying.png'%}" class="studying" alt="" style="width: 20%; height: auto; margin-top: 75px;">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4">
+			
+		</div>
+		<div class="col-4">
+			<img src="{% static 'image/girl.png'%}" alt="" style="width: 50%; height: auto;">
+			<a href="/Student/ViewDeadline" title="" class="btn btn-danger btngirl">View Deadline</a>
+		</div>
+		<div class="col-4">
+		</div>
+	</div>
+</div>
+<div class="container-xl" style="margin-top: 20px;">
+	<div class="row">
+		<div class="col-xl-6 col-12">
+			<img src="{% static 'image/Professor.png'%}" alt="" style="width: 30%; height: auto;">
+			<a href="{% url 'ViewContributes'%}" class="btn btn-danger">My Contribute</a>
+		</div>
+		<div class="col-xl-6 col-12" style="text-align: right;">
+			<a href="/Student/my_profileStudent" class="btn btn-danger btnEdithuman">My Profile</a>
+			<img src="{% static 'image/edithuman.png'%}" alt="" style="width: 20%; height: auto;">
+		</div>
+	</div>
+</div>
+</body>
+</html>
